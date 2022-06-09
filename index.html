@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <title>Pizza project</title>
+</head>
+<body>
+  <div id="app">
+    <input
+    v-model="prezzo"
+    @keyup.enter="getApi"
+    type="text">
+    <p
+    v-if="!success"
+    >{{error_msg}}</p>
+    <div
+      v-else
+      v-for="(pizza, index) in pizze" :key="index"
+      class="box">
+
+      <h2>{{pizza.nome}}</h2>
+      <ul>
+        <li
+        v-for="(ingrediente, index) in pizza.ingredienti " :key="index"
+        >{{ingrediente}}</li>
+
+      </ul>
+      <p>&euro; {{pizza.prezzo}}</p>
+      <hr>
+    </div>
+
+    
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>
